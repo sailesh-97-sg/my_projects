@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1000218679640",
+    "firebase_url": "https://dip-ee018-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "dip-ee018",
+    "storage_bucket": "dip-ee018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000218679640:android:3d77b54c2a4b634be1ad2d",
+        "android_client_info": {
+          "package_name": "com.example.irent_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000218679640-jabna1li7rv2g2bld2m940ke6a9t06u9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChbM81w4ZPP6zW8dpB5hpf4lI5loADj-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000218679640-jabna1li7rv2g2bld2m940ke6a9t06u9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1000218679640-f7roaiib30fpe3jlvkfctha6egq7pd8s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.irentApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
