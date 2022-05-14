@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorVariation</title>
+
+</head>
+
+<body onload="applyimagefilter()">
+    <!-- onload allows the filter function to scan for all images once the webpage opens -->
+
+    <h2>Testing color variation</h2>
+
+    <!-- mimicing 4 imgs -->
+    <img src='images/cat1.jpg'>
+    <img style='display: inline;' src='images/cat1.jpg'>
+    <img src='images/cat1.jpg'>
+    <img style='display: inline;' src='images/cat1.jpg'>
+
+
+    <script>
+        // applyimagefilter function to reduce size
+        function applyimagefilter() {
+            let imgs = document.getElementsByTagName("img"); // returns a collection of images
+
+            for (img of imgs) {
+                img.height = "300"
+                img.width = "500"
+                console.log(img.src)
+                img.style.filter = 'contrast(50%) grayscale(20%) opacity(80%) saturate(100%)'; // change this according to the values that give the least image file size
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
