@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, must_call_super, unused_local_variable, avoid_single_cascade_in_expression_statements, unused_label
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/foundation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,31 +34,68 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     var screenwidth = MediaQuery.of(context).size.width;
     var screenheight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: Colors.grey[850],
-      appBar: AppBar(
-          title: Text('Sailesh Gopalakrishnan'), backgroundColor: Colors.black),
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                introductionName(),
-                albumApp(),
-                iRentApp(),
-                familiarTechnologies(),
-              ],
-            ),
-          )),
+    if (kIsWeb) {
+      return Scaffold(
+        backgroundColor: Color.fromARGB(255, 36, 36, 36),
+        appBar: AppBar(
+            title: Text('Sailesh Gopalakrishnan'),
+            backgroundColor: Colors.black),
+        body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  introductionName(),
+                  introductionDetailed(),
+                  albumApp(),
+                  iRentApp(),
+                  familiarTechnologies(),
+                ],
+              ),
+            )),
+      );
+    } else {
+      throw '';
+    }
+  }
+
+  introductionDetailed() {
+    var screenheight = MediaQuery.of(context).size.height;
+    var screenwidth = MediaQuery.of(context).size.width;
+    return Container(
+      width: screenwidth,
+      height: screenheight,
+      decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(color: Colors.white),
+          ),
+          gradient: LinearGradient(
+              stops: [0.9, 1.0],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color.fromARGB(255, 220, 220, 220), Colors.white])),
+      child: Column(
+        children: [
+          Row(
+            children: [Container(color: Colors.blue)],
+          )
+        ],
+      ),
     );
   }
 
   albumApp() {
     return Container(
+        decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: Colors.white)),
+            gradient: LinearGradient(
+                stops: [0.9, 1.0],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.white, Colors.black])),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -136,9 +174,14 @@ class _HomePageState extends State<HomePage>
 
   iRentApp() {
     return Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                stops: [0.9, 1.0],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.black, Color.fromARGB(255, 0, 5, 74)])),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.black,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -246,30 +289,144 @@ class _HomePageState extends State<HomePage>
   }
 
   familiarTechnologies() {
+    var screenheight = MediaQuery.of(context).size.height;
+    var screenwidth = MediaQuery.of(context).size.width;
     return Container(
+        padding: EdgeInsets.only(left: 30, right: 30),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Color.fromARGB(255, 0, 5, 74),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Familiar Technologies',
                 style: GoogleFonts.arsenal(
+                    shadows: [
+                      Shadow(
+                          blurRadius: 7.0,
+                          color: Colors.white,
+                          offset: Offset(0, 0))
+                    ],
                     fontStyle: FontStyle.italic,
                     fontSize: 30,
                     color: Colors.white)),
-            Row(children: [
-              Image.asset('images/firebase.png'),
-              Text('!!',
-                  style: GoogleFonts.arsenal(
-                      fontStyle: FontStyle.italic,
-                      fontSize: 30,
-                      color: Colors.white)),
-              Text('!!',
-                  style: GoogleFonts.arsenal(
-                      fontStyle: FontStyle.italic,
-                      fontSize: 30,
-                      color: Colors.white))
+            SizedBox(height: 20),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 3,
+                    maxWidth: screenwidth / 5,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/firebase.png',
+                          height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          textAlign: TextAlign.center,
+                          'Used Firebase Auth and Firebase Firestore for developing iRent',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 3,
+                    maxWidth: screenwidth / 5,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/flutter.png',
+                          height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          textAlign: TextAlign.center,
+                          'Used Flutter for developing mobile applications and this portfolio site',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 3,
+                    maxWidth: screenwidth / 5,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/wordpress.png',
+                          height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          textAlign: TextAlign.center,
+                          'Used WordPress to design the previous portfolio site',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
+              ),
+            ]),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 3,
+                    maxWidth: screenwidth / 5,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/kubernetes.png',
+                          height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          textAlign: TextAlign.center,
+                          'Used Kubernetes for managing Docker containers in on-premise servers which have been pushed using GitLab CI/CD',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 3,
+                    maxWidth: screenwidth / 5,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/python.png', height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          textAlign: TextAlign.center,
+                          'Used Python for implementing Machine Learning and Data Analysis projects for University ',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 3,
+                    maxWidth: screenwidth / 5,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/chrome.png', height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          textAlign: TextAlign.center,
+                          'Used Javascript to develop Chrome Extensions as part of a project related to Sustainable Web Development',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  ),
+                ),
+              ),
             ])
           ],
         ));
