@@ -56,7 +56,14 @@ class _HomePageState extends State<HomePage>
             )),
       );
     } else {
-      throw '';
+      return Scaffold(
+        backgroundColor: Color.fromARGB(255, 36, 36, 36),
+        appBar: AppBar(
+          title: Text('Sailesh Gopalakrishnan'),
+          backgroundColor: Colors.black,
+        ),
+        body: Container(width: MediaQuery.of(context).size.width),
+      );
     }
   }
 
@@ -78,7 +85,40 @@ class _HomePageState extends State<HomePage>
       child: Column(
         children: [
           Row(
-            children: [Container(color: Colors.blue)],
+            children: [
+              Container(
+                  padding: EdgeInsets.all(50),
+                  width: screenwidth / 2,
+                  height: screenheight - 5,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        child: Text('About Me',
+                            style: TextStyle(
+                                fontSize: 50,
+                                letterSpacing: 4,
+                                color: Colors.black.withOpacity(0.2))),
+                      ),
+                      Positioned(
+                        top: 25,
+                        left: 150,
+                        child: Text(
+                          'I am a student studying Electrical & Electronic Engineering in\nNanyang Technological University, Singapore',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                      )
+                    ],
+                  )),
+              Container(
+                  padding: EdgeInsets.all(50),
+                  width: screenwidth / 2,
+                  height: screenheight - 5,
+                  child: Image.asset(
+                    'images/ntu.png',
+                  )),
+            ],
           )
         ],
       ),
