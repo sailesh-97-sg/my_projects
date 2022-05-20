@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "CheckDataTransfer",
+    "version": "1",
+    "devtools_page": "devtools.html",
+    "permissions": [
+        "fileSystem",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
