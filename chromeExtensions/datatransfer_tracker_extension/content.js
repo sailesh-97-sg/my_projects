@@ -34,16 +34,16 @@ chrome.storage.local.get(['isRefreshed'], function (result) {
             // Convert octets to GB
             return console.log('Amount of Data Transferred During First Visit: ' + count * 10 ** (-9) + ' GB');
         }, 5000)
-        window.setTimeout(function () { location.reload() }, 7000);
+        window.setTimeout(function () { chrome.runtime.sendMessage({ type: "reload" }) }, 7000);
     }
     else {
         setTimeout(function getReturningVisitDataTransfer() {
             console.log("The page has been refreshed, and isRefreshed is set to True")
             var count = 0;
-            var p = performance.getEntries();
-            for (var i = 0; i < p.length; i++) {
-                if ("transferSize" in p[i]) {
-                    count = count + p[i].transferSize;
+            var n = performance.getEntries();
+            for (var i = 0; i < n.length; i++) {
+                if ("transferSize" in n[i]) {
+                    count = count + n[i].transferSize;
                 }
             }
             chrome.storage.local.set({ isRefreshed: false }, function () {

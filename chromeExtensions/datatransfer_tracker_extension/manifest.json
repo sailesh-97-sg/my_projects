@@ -1,12 +1,18 @@
 {
     "manifest_version": 2,
-    "name": "CheckDataTransfer",
+    "name": "CheckDataTransfer_v1",
     "version": "1",
     "devtools_page": "devtools.html",
     "permissions": [
         "fileSystem",
         "storage"
     ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
     "content_scripts": [
         {
             "matches": [
