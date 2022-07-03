@@ -1,10 +1,14 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, must_call_super, unused_local_variable, avoid_single_cascade_in_expression_statements, unused_label
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_literals_to_create_immutables, must_call_super, unused_local_variable, avoid_single_cascade_in_expression_statements, unused_label, @dart=2.9
+import 'package:delayed_display/delayed_display.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:io' show Platform;
+import 'package:timeline_tile/timeline_tile.dart';
+import 'package:universal_html/html.dart' hide Text;
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,8 +73,15 @@ class _HomePageState extends State<HomePage>
     }
   }
 
+  downloadFile(url) {
+    AnchorElement anchorElement = new AnchorElement(href: url);
+    anchorElement.download = "Resume";
+    anchorElement.click();
+  }
+
   introductionDetailed() {
-    var screenheight = MediaQuery.of(context).size.height;
+    int currentStep = 0;
+    var screenheight = MediaQuery.of(context).size.height * 1.5;
     var screenwidth = MediaQuery.of(context).size.width;
     return Container(
       width: screenwidth,
@@ -84,30 +95,144 @@ class _HomePageState extends State<HomePage>
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [Color.fromARGB(255, 220, 220, 220), Colors.white])),
-      child: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              Text('Hawker Pacific Asia'),
-              Text('Electrical & Electronic Engineering'),
-              Text('Thales')
-            ]),
-            Text('About Me',
-                style: TextStyle(
-                    fontSize: 60,
-                    letterSpacing: 4,
-                    color: Colors.black.withOpacity(0.2))),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text('About Me',
+            style: TextStyle(
+                fontSize: 60,
+                letterSpacing: 4,
+                color: Colors.black.withOpacity(0.8))),
+        Container(
+          height: 40,
+          margin: EdgeInsets.only(top: 10),
+          child: ElevatedButton(
+              // ignore: sort_child_properties_last
+              child: Text(
+                'View Resume',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () => downloadFile(
+                  'https://onedrive.live.com/embed?cid=A9552CE7407F7ED6&resid=A9552CE7407F7ED6%2114779&authkey=ABqeSlhzUWfl9nw&em=2'),
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  primary: Colors.black)),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        SizedBox(
+          width: screenwidth / 1.5,
+          child: Text(
+            'I am a student studying in Electrical & Electronic Engineering in Nanyang Technological University. Over my years in university, I\'ve gained an interest in Software Development, and have started working towards a full time development position. My hobbies include reading novels, gaming and playing around with smart home technology.',
+            textAlign: TextAlign.center,
+          ),
+        ),
+        SizedBox(
+          height: 60,
+        ),
+        Container(
+            height: 150,
+            padding: EdgeInsets.all(10),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    child: TimelineTile(
+                      axis: TimelineAxis.horizontal,
+                      afterLineStyle: LineStyle(color: Colors.orange),
+                      alignment: TimelineAlign.center,
+                      indicatorStyle:
+                          IndicatorStyle(color: Colors.black, width: 30),
+                      endChild: Container(
+                        margin: EdgeInsets.only(top: 10),
+                        alignment: Alignment.center,
+                        constraints: const BoxConstraints(
+                          minWidth: 200,
+                        ),
+                        child: Text(
+                          'Bartley Secondary School\n(Secondary Education)',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      //    AnimatedTextKit(
+                      //   totalRepeatCount: 4,
+                      //   animatedTexts: [
+                      //     TypewriterAnimatedText('AlbumHub',
+                      //         textStyle: TextStyle(fontSize: 30))
+                      //   ],
+                      // ),
+                      isFirst: true,
+                      startChild: DelayedDisplay(
+                        delay: Duration(seconds: 2),
+                        child: AnimatedTextKit(
+                          totalRepeatCount: 1,
+                          animatedTexts: [
+                            TypewriterAnimatedText('2011',
+                                textStyle:
+                                    TextStyle(fontWeight: FontWeight.bold))
+                          ],
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                title: Text('Bartley Secondary School',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                content: Text(
+                                    'Studied for four years in Bartley Secondary School under the Express stream, and was an Staff Sergeant in the National Cadet Corps (NCC). I was involved in organising camps as well as organising training sessions for the juniors, and also participated in the Singapore Youth Festival parade, and was one of the two people selected to be involved in an Advanced Drills Course (ADC)'),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text("OK")),
+                                ],
+                              ));
+                    },
+                  ),
+                  GestureDetector(
+                    child: TimelineTile(
+                      isFirst: false,
+                      isLast: false,
+                      beforeLineStyle: LineStyle(color: Colors.red),
+                      axis: TimelineAxis.horizontal,
+                      indicatorStyle:
+                          IndicatorStyle(color: Colors.black, width: 40),
+                      alignment: TimelineAlign.center,
+                      endChild: Container(
+                        margin: EdgeInsets.only(top: 10),
+                        alignment: Alignment.center,
+                        constraints: const BoxConstraints(
+                          minWidth: 200,
+                        ),
+                        child: Text(
+                          'Ngee Ann Polytechnic\n(Aerospace Electronics)',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      startChild: DelayedDisplay(
+                        delay: Duration(seconds: 3),
+                        child: AnimatedTextKit(
+                          totalRepeatCount: 1,
+                          animatedTexts: [
+                            TypewriterAnimatedText('2014',
+                                textStyle:
+                                    TextStyle(fontWeight: FontWeight.bold))
+                          ],
+                        ),
+                      ),
+                    ),
                     onTap: () => showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                              title: Text('Project Flux Internship'),
+                              title: Text('Ngee Ann Polytechnic',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               content: Text(
-                                  'I worked as a Chrome Extension Developer in Project Flux, creating extensions that contributed towards Sustainable Web Development. This involved coming up with extensions that reduced carbon emissions and amount of data transferred so that less energy is used.'),
+                                  'Studied for 3 years in Polytechnic as a student taking Aerospace Electronics with a Minor in Business Management. Was part of the sub-committee of the Computer Club, and was responsible for organising events for the club members.'),
                               actions: [
                                 TextButton(
                                   child: Text('OK'),
@@ -115,14 +240,47 @@ class _HomePageState extends State<HomePage>
                                 )
                               ],
                             )),
-                    child: Text('Project Flux')),
-                GestureDetector(
+                  ),
+                  GestureDetector(
+                    child: TimelineTile(
+                      isFirst: false,
+                      isLast: false,
+                      axis: TimelineAxis.horizontal,
+                      indicatorStyle:
+                          IndicatorStyle(color: Colors.black, width: 30),
+                      beforeLineStyle: LineStyle(color: Colors.green),
+                      alignment: TimelineAlign.center,
+                      endChild: Container(
+                        margin: EdgeInsets.only(top: 10),
+                        alignment: Alignment.center,
+                        constraints: const BoxConstraints(
+                          minWidth: 200,
+                        ),
+                        child: Text(
+                          'Singapore Armed Forces\n(Singapore Guards)',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      startChild: DelayedDisplay(
+                        delay: Duration(seconds: 4),
+                        child: AnimatedTextKit(
+                          totalRepeatCount: 1,
+                          animatedTexts: [
+                            TypewriterAnimatedText('2017',
+                                textStyle:
+                                    TextStyle(fontWeight: FontWeight.bold))
+                          ],
+                        ),
+                      ),
+                    ),
                     onTap: () => showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                              title: Text('Computer Engineering'),
+                              title: Text('Singapore Armed Forces',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                               content: Text(
-                                  'I am specializing in Computer Engineering in University, having taken Data Structures and Algorithms, Computer Communications, Software Engineering and several other relevant modules.'),
+                                  'Served 2 years in the Singapore Guards as part of National Service. Went through the Guards Vocational Training and earned the Guards tab, and also took a Signaller Course to learn more about relaying communications in the battlefield. After graduation from the Signaller Course, served as a Guards Signaller for the remainder of the National Service period.'),
                               actions: [
                                 TextButton(
                                   child: Text('OK'),
@@ -130,12 +288,105 @@ class _HomePageState extends State<HomePage>
                                 )
                               ],
                             )),
-                    child: Text('Computer Engineering')),
-                Text('Hobbies')
-              ],
-            )
-            //             ),],
-          ])),
+                  ),
+                  GestureDetector(
+                      child: TimelineTile(
+                        isFirst: false,
+                        isLast: false,
+                        indicatorStyle:
+                            IndicatorStyle(color: Colors.black, width: 30),
+                        axis: TimelineAxis.horizontal,
+                        alignment: TimelineAlign.center,
+                        beforeLineStyle: LineStyle(color: Colors.blue),
+                        endChild: Container(
+                          margin: EdgeInsets.only(top: 10),
+                          alignment: Alignment.center,
+                          constraints: const BoxConstraints(
+                            minWidth: 200,
+                          ),
+                          child: Text(
+                            'Nanyang Technological University\n(Electrical & Electronic Engineering)',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        startChild: DelayedDisplay(
+                          delay: Duration(seconds: 5),
+                          child: AnimatedTextKit(
+                            totalRepeatCount: 1,
+                            animatedTexts: [
+                              TypewriterAnimatedText('2020',
+                                  textStyle:
+                                      TextStyle(fontWeight: FontWeight.bold))
+                            ],
+                          ),
+                        ),
+                      ),
+                      onTap: () => showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                title: Text('Nanyang Technological University',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                content: Text(
+                                    'Studied Electrical & Electronic Engineering in NTU. Took a course in Data Science and Artificial Intelligence to carry out projects which used Classification models such as XGBoost and Random Forest, as well as Linear Regression projects for business analysis. Also participated in a project which involved creating a Flutter based application, and took modules related to Computer Engineering, which I specialized in during my final year.'),
+                                actions: [
+                                  TextButton(
+                                    child: Text('OK'),
+                                    onPressed: () => Navigator.pop(context),
+                                  )
+                                ],
+                              ))),
+                  GestureDetector(
+                      child: TimelineTile(
+                        isFirst: false,
+                        isLast: true,
+                        indicatorStyle:
+                            IndicatorStyle(color: Colors.black, width: 30),
+                        axis: TimelineAxis.horizontal,
+                        alignment: TimelineAlign.center,
+                        beforeLineStyle: LineStyle(color: Colors.black),
+                        endChild: Container(
+                          margin: EdgeInsets.only(top: 10),
+                          alignment: Alignment.center,
+                          constraints: const BoxConstraints(
+                            minWidth: 200,
+                          ),
+                          child: Text(
+                            'Professional Internship\n(Thales)',
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        startChild: DelayedDisplay(
+                          delay: Duration(seconds: 6),
+                          child: AnimatedTextKit(
+                            totalRepeatCount: 1,
+                            animatedTexts: [
+                              TypewriterAnimatedText('2021',
+                                  textStyle:
+                                      TextStyle(fontWeight: FontWeight.bold))
+                            ],
+                          ),
+                        ),
+                      ),
+                      onTap: () => showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                title: Text('Thales Internship',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                content: Text(
+                                    'Worked as an AI Automation Engineer, responsible for automating CI/CD Pipelines using GitLab CI/CD to push Machine Learning models to containers in on-premise servers, managed by Kubernetes. Also managed the configuration of Kubernetes Clusters by making use of YAML configuration files. Researched other potential alternatives for improving the infastructure, such as Kubeflow or GPU Acceleration and carried out the implementation.'),
+                                actions: [
+                                  TextButton(
+                                    child: Text('OK'),
+                                    onPressed: () => Navigator.pop(context),
+                                  )
+                                ],
+                              ))),
+                ],
+              ),
+            ))
+      ]),
       // child: Column(
       //   children: [
       //     Container(
@@ -154,7 +405,7 @@ class _HomePageState extends State<HomePage>
       //             ),
       //             Positioned(
       //               top: MediaQuery.of(context).size.height / 2.9,
-      //               left: MediaQuery.of(context).size.width / 3 - 40,
+      //               left: MediaQuery.of(context).size.width / 3 - 30,
       //               child: Text(
       //                 'I am a student studying Electrical & Electronic\nEngineering in Nanyang Technological University',
       //                 style: TextStyle(fontSize: 20),
@@ -391,13 +642,21 @@ class _HomePageState extends State<HomePage>
 
   familiarTechnologies() {
     var myGroup = AutoSizeGroup();
-    var screenheight = MediaQuery.of(context).size.height + 50;
+    var screenheight = MediaQuery.of(context).size.height * 1.25;
     var screenwidth = MediaQuery.of(context).size.width;
     return Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                stops: [0.9, 1.0],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromARGB(255, 0, 5, 74),
+                  Color.fromARGB(238, 239, 235, 235)
+                ])),
         padding: EdgeInsets.only(left: 30, right: 30),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Color.fromARGB(255, 0, 5, 74),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -547,17 +806,51 @@ class _HomePageState extends State<HomePage>
 
   linksSection() {
     return Container(
-        decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.white)),
-            gradient: LinearGradient(
-                stops: [0.9, 1.0],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.white, Colors.black])),
+        color: Color.fromARGB(238, 239, 235, 235),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 4,
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [Image.asset('images/github.png')]));
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Expanded(
+            flex: 2,
+            child: GestureDetector(
+              child: Container(
+                  padding: EdgeInsets.all(30),
+                  child: Image.asset('images/github.png')),
+              onTap: () async {
+                final url = 'https://github.com/sailesh-97-sg/my_projects';
+                if (await canLaunch(url)) {
+                  await launch(url,
+                      forceSafariVC: true,
+                      forceWebView: true,
+                      enableJavaScript: true);
+                }
+              },
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: GestureDetector(
+              child: Container(
+                  padding: EdgeInsets.all(30),
+                  child: Image.asset('images/mail.png')),
+              onTap: () async {
+                final toEmail = 'contact@sailsg.com';
+                final subject = '';
+                final message = '';
+                final url =
+                    "mailto:$toEmail?subject=${subject}&body=${Uri.encodeFull(message)}";
+                if (await canLaunch(url)) {
+                  await launch(url);
+                }
+              },
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+                padding: EdgeInsets.all(30),
+                child: Image.asset('images/linkedin.png')),
+          )
+        ]));
   }
 }
