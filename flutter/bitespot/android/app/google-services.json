@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1046971208502",
+    "project_id": "fyp-bitespot",
+    "storage_bucket": "fyp-bitespot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046971208502:android:c207e2e16645906031d997",
+        "android_client_info": {
+          "package_name": "com.example.bitespot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046971208502-hvjjp1q5n0ub6s358pm76m2aqeteft8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyWIY6liOxBhJ8IbDF_vgOft8UuHS48hg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046971208502-hvjjp1q5n0ub6s358pm76m2aqeteft8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
