@@ -55,6 +55,7 @@ class _HomePageState extends State<HomePage>
                   introductionDetailed(),
                   albumApp(),
                   iRentApp(),
+                  awsCertification(),
                   familiarTechnologies(),
                   linksSection()
                 ],
@@ -111,7 +112,7 @@ class _HomePageState extends State<HomePage>
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () => downloadFile(
-                  'https://onedrive.live.com/embed?cid=A9552CE7407F7ED6&resid=A9552CE7407F7ED6%2114779&authkey=ABqeSlhzUWfl9nw&em=2'),
+                  'https://onedrive.live.com/embed?cid=A9552CE7407F7ED6&resid=A9552CE7407F7ED6%2114781&authkey=AKeW67kVQETEJ80&em=2'),
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
@@ -531,7 +532,7 @@ class _HomePageState extends State<HomePage>
                 stops: [0.9, 1.0],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.black, Color.fromARGB(255, 0, 5, 74)])),
+                colors: [Colors.black, Colors.white])),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Row(
@@ -629,7 +630,7 @@ class _HomePageState extends State<HomePage>
                   fontWeight: FontWeight.bold,
                   color: Colors.white)),
           SizedBox(height: 20),
-          Text('UI/UX Designer and Frontend Developer',
+          Text('Solutions Architect and Fullstack Developer',
               textAlign: TextAlign.center,
               style: GoogleFonts.arsenal(
                   fontStyle: FontStyle.italic,
@@ -640,9 +641,57 @@ class _HomePageState extends State<HomePage>
     );
   }
 
+  awsCertification() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              stops: [0.9, 1.0],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.white, Color.fromARGB(255, 0, 5, 74)])),
+      child: Container(
+        margin: EdgeInsets.all(20),
+        child: Center(
+            child: Row(
+          children: [
+            Expanded(
+                flex: 2,
+                child: Image.asset(
+                  'images/awssa.png',
+                  height: 200,
+                  width: 200,
+                )),
+            Expanded(
+              flex: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'AWS Certified Solutions Architect (Associate)',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Passed my AWS Solutions Architect Associate on August 2022. Have experience deploying applications on AWS Amplify, as well as hosting static websites manually using S3 and Cloudfront. Have knowledge on serverless architectures as well as cost optimizing deployments on AWS, as well as knowledge of more existing tools in AWS through studying for the AWS SA exam.',
+                    textAlign: TextAlign.start,
+                  )
+                ],
+              ),
+            )
+          ],
+        )),
+      ),
+    );
+  }
+
   familiarTechnologies() {
     var myGroup = AutoSizeGroup();
-    var screenheight = MediaQuery.of(context).size.height * 1.25;
+    var screenheight = MediaQuery.of(context).size.height * 1.5;
     var screenwidth = MediaQuery.of(context).size.width;
     return Container(
         decoration: BoxDecoration(
@@ -656,7 +705,7 @@ class _HomePageState extends State<HomePage>
                 ])),
         padding: EdgeInsets.only(left: 30, right: 30),
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height * 1.5,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -677,7 +726,7 @@ class _HomePageState extends State<HomePage>
               Container(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: screenheight / 3,
+                    maxHeight: screenheight / 5,
                     maxWidth: screenwidth / 4,
                   ),
                   child: Column(
@@ -689,8 +738,9 @@ class _HomePageState extends State<HomePage>
                           group: myGroup,
                           minFontSize: 10,
                           textAlign: TextAlign.center,
-                          'Used Firebase Auth and Firebase Firestore for developing iRent',
-                          style: TextStyle(color: Colors.white))
+                          'Firebase',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -698,7 +748,7 @@ class _HomePageState extends State<HomePage>
               Container(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: screenheight / 3,
+                    maxHeight: screenheight / 5,
                     maxWidth: screenwidth / 4,
                   ),
                   child: Column(
@@ -710,8 +760,9 @@ class _HomePageState extends State<HomePage>
                           group: myGroup,
                           minFontSize: 10,
                           textAlign: TextAlign.center,
-                          'Used Flutter for developing mobile applications and this portfolio site',
-                          style: TextStyle(color: Colors.white))
+                          'Flutter',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -719,7 +770,7 @@ class _HomePageState extends State<HomePage>
               Container(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: screenheight / 3,
+                    maxHeight: screenheight / 5,
                     maxWidth: screenwidth / 4,
                   ),
                   child: Column(
@@ -731,8 +782,9 @@ class _HomePageState extends State<HomePage>
                           group: myGroup,
                           minFontSize: 10,
                           textAlign: TextAlign.center,
-                          'Used WordPress to design the previous portfolio site',
-                          style: TextStyle(color: Colors.white))
+                          'WordPress',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -742,7 +794,7 @@ class _HomePageState extends State<HomePage>
               Container(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: screenheight / 3,
+                    maxHeight: screenheight / 5,
                     maxWidth: screenwidth / 4,
                   ),
                   child: Column(
@@ -754,8 +806,9 @@ class _HomePageState extends State<HomePage>
                           group: myGroup,
                           minFontSize: 10,
                           textAlign: TextAlign.center,
-                          'Used Kubernetes for managing Docker containers in on-premise servers which have been pushed using GitLab CI/CD',
-                          style: TextStyle(color: Colors.white))
+                          'Kubernetes',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -763,7 +816,7 @@ class _HomePageState extends State<HomePage>
               Container(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: screenheight / 3,
+                    maxHeight: screenheight / 5,
                     maxWidth: screenwidth / 4,
                   ),
                   child: Column(
@@ -774,8 +827,9 @@ class _HomePageState extends State<HomePage>
                           group: myGroup,
                           textAlign: TextAlign.center,
                           minFontSize: 10,
-                          'Used Python for implementing Machine Learning and Data Analysis projects for University ',
-                          style: TextStyle(color: Colors.white))
+                          'Python',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
                     ],
                   ),
                 ),
@@ -783,7 +837,7 @@ class _HomePageState extends State<HomePage>
               Container(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: screenheight / 3,
+                    maxHeight: screenheight / 5,
                     maxWidth: screenwidth / 4,
                   ),
                   child: Column(
@@ -793,13 +847,82 @@ class _HomePageState extends State<HomePage>
                       AutoSizeText(
                           group: myGroup,
                           textAlign: TextAlign.center,
-                          'Used Javascript to develop Chrome Extensions as part of a project related to Sustainable Web Development',
-                          style: TextStyle(color: Colors.white, fontSize: 8))
+                          'Chrome Extensions',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                              fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
               ),
-            ])
+            ]),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 5,
+                    maxWidth: screenwidth / 4,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/html5.png', height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          group: myGroup,
+                          minFontSize: 10,
+                          textAlign: TextAlign.center,
+                          'HTML5',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 5,
+                    maxWidth: screenwidth / 4,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/css3.png', height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          group: myGroup,
+                          minFontSize: 10,
+                          textAlign: TextAlign.center,
+                          'CSS3',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: screenheight / 5,
+                    maxWidth: screenwidth / 4,
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset('images/awslogo.png',
+                          height: 100, width: 100),
+                      SizedBox(height: 10),
+                      AutoSizeText(
+                          group: myGroup,
+                          minFontSize: 10,
+                          textAlign: TextAlign.center,
+                          'AWS',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold))
+                    ],
+                  ),
+                ),
+              ),
+            ]),
           ],
         ));
   }
