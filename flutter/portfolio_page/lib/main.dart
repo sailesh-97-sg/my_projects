@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage>
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () => downloadFile(
-                  'https://onedrive.live.com/embed?cid=A9552CE7407F7ED6&resid=A9552CE7407F7ED6%2114781&authkey=AKeW67kVQETEJ80&em=2'),
+                  'https://onedrive.live.com/embed?cid=A9552CE7407F7ED6&resid=A9552CE7407F7ED6%2114782&authkey=AGcdX6fiOzbVadU&em=2'),
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage>
         SizedBox(
           width: screenwidth / 1.5,
           child: Text(
-            'I am a student studying in Electrical & Electronic Engineering in Nanyang Technological University. Over my years in university, I\'ve gained an interest in Software Development, and have started working towards a full time development position. My hobbies include reading novels, gaming and playing around with smart home technology.',
+            'I am a student studying in Electrical & Electronic Engineering in Nanyang Technological University. Over my years in university, I\'ve gained an interest in the cloud and mobile development, and have started working towards a full time cloud architect role. My hobbies include reading novels, gaming and playing around with smart home technology.',
             textAlign: TextAlign.center,
           ),
         ),
