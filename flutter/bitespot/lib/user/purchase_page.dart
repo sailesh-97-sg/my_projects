@@ -577,7 +577,12 @@ class _PurchasePageState extends State<PurchasePage> {
         'time_purchased': Timestamp.fromDate(
           DateTime.now(),
         ),
-        'table_number': tableEditingController.text
+        'table_number': tableEditingController.text,
+        'store_name': widget.storeName,
+        'order_number': randomNumber,
+        'time_information': DateFormat('dd-MM-yyyy_KK:mm:ss #' + randomNumber)
+            .format(DateTime.now())
+            .toString()
       });
       FirebaseFirestore.instance
           .collection('users')
@@ -594,7 +599,12 @@ class _PurchasePageState extends State<PurchasePage> {
         'time_purchased': Timestamp.fromDate(
           DateTime.now(),
         ),
-        'table_number': tableEditingController.text
+        'table_number': tableEditingController.text,
+        'store_name': widget.storeName,
+        'order_number': randomNumber,
+        'time_information': DateFormat('dd-MM-yyyy_KK:mm:ss #' + randomNumber)
+            .format(DateTime.now())
+            .toString()
       });
     } on FirebaseException catch (e) {
       print(e);

@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:bitespot/user/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -18,9 +19,17 @@ class VerifyEmail extends StatefulWidget {
 class _VerifyEmailState extends State<VerifyEmail> {
   bool isEmailVerified = false;
   bool canResendEmail = false;
+  bool? isAdmin;
+
   Timer? timer;
   final TextEditingController _emailController = TextEditingController();
   String? errorMessage;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    adminOrNot();
+  }
 
   @override
   void dispose() {
@@ -117,6 +126,20 @@ class _VerifyEmailState extends State<VerifyEmail> {
             ),
           ),
         ));
+  Future<void> adminOrNot() async {
+    var myUsers = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    var role = myUsers['role'];
+    bool isAdmin;
+    if (role == 'user') {
+      isAdmin = false;
+    } else {
+      isAdmin = true;
+    }
+  }
+
   // BuildContext
 
   // Future here
