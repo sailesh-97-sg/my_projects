@@ -1,0 +1,47 @@
+.about_us_body {
+    margin: auto;
+    background-color: rgb(195, 195, 195);
+    width: 80%;
+    margin-top: 0px;
+    padding: 2px 20px;
+    border-radius: 20px;
+    align-content: start;
+    min-width: 900px;
+}
+
+#introduction {
+    display: flex;
+}
+
+#owner1 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+}
+
+
+#introduction p {
+    margin-left: 20px;
+
+}
+
+#owner1 p {
+    margin-right: 20px;
+}
+
+#introductiontext {
+    word-break: break-word;
+}
+
+body {
+    margin: 0px;
+}
+
+img {
+    border-radius: 20px;
+}
+
+.spacer {
+    height: 100px;
+}

@@ -1,0 +1,82 @@
+.contact_body {
+    margin: auto;
+    background-color: rgb(195, 195, 195);
+    width: 90%;
+    margin-top: 0px;
+    padding: 2px 20px;
+    border-radius: 20px;
+    min-width: 900px;
+}
+body {
+    margin: 0px;
+}
+.contactdetails {
+    padding: 10px 10px;
+    border-bottom: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 0px;
+}
+.nameandemail div input {
+    border-radius: 20px;
+    height: 20px;
+    margin-top: 20px;
+    margin-right: 20px;  
+}
+.feedbacksubject input {
+    border-radius: 20px;
+    height: 20px;
+    margin-top: 20px;
+    margin-right: 20px;   
+}
+.message {
+    padding: 10px 10px;
+    border-bottom: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 0px;
+}
+#submitfeedback {
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+    width: 140px;
+    height: 20px;
+    margin-top: 20px;
+}
+form {
+    grid-column: 3/7;
+}
+.feedbacksubmit {
+    margin-left: 70px;
+}
+.feedbackname {
+    margin-bottom: 10px;
+}
+.messageinput {
+    background-color: white;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+    padding: 10px 90px;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.feedbacksubject {
+    align-self: cet;
+}
+.message {
+    padding: 30px 10px;
+}
+.career {
+    padding: 30px 30px;
+}
+#submitform {
+    border-radius: 20px;
+    width: 100px;
+    background-color: black;
+    color: white;
+}

@@ -1,0 +1,134 @@
+body {
+    margin: 0px;
+}
+.profile_body {
+    margin: auto;
+    background-color: rgb(195, 195, 195);
+    width: 90%;
+    margin-top: 0px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    min-width: 1000px;
+}
+.accountandorders {
+    padding: 40px 40px;
+}
+.accountdetails {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 13px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.firstname {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.firstname p:nth-of-type(2) {
+    margin-left: 3px;
+}
+.firstname input {
+    height: 24px;
+    width: 60px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+
+}
+.lastname {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+.lastname p:nth-of-type(2) {
+    margin-left: 3px;
+}
+.email {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+
+.email p:nth-of-type(2) {
+    margin-left: 3px;
+}
+
+
+.address {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+
+.address p:nth-of-type(2) {
+    margin-left: 3px;
+}
+
+.postalcode {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+
+.postalcode p:nth-of-type(2) {
+    margin-left: 3px;
+}
+
+.orders {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 13px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.datepurchased {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.datepurchased p:nth-of-type(2) {
+    margin-left: 3px;
+}
+
+.datepurchased input {
+    height: 24px;
+    width: 60px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+
+}
+
+.itemspurchased {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+    line-height: 4px;
+}
+
+.itemspurchased p:nth-of-type(2) {
+    margin-left: 3px;
+}
+
+.listofitemspurchased {
+    margin-left: 10px;
+}
+
+
+
+.totalprice {
+    display: flex;
+    flex-direction: row;
+    margin-top: -20px;
+}
+
+.totalprice p:nth-of-type(2) {
+    margin-left: 3px;
+}

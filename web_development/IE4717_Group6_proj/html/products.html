@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/general_style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <header>
+                <script src="../JS/header_logo.js"></script>
+                <!-- tabs contents are not the same for every page. It will be edited in html files.-->
+                <script src="../JS/header_tabs.js"></script>
+                <!--Search bar will be re-written in JS after login and cart buttons are added-->
+                <div id="search_bar">
+                    <input type="text" placeholder="Search...">
+                    <input type="image" src="../assets/search.png" name="search" width="35px" height="35px"
+                        alt="submit">
+                </div>
+            </header>
+        </div>
+        <div class="products_body">
+            <div class="filtersandproducts">
+                <div class="filters">
+                    <p><strong>Products:</strong></p>
+                    <p>Filter by:</p>
+                    <div class="pricefilter">
+                        <input type="radio" name="pricefilter" id="lowtohigh" class="pricefiltering" checked>
+                        <label for="lowtohigh">Low to High</label>
+                        <br>
+                        <input type="radio" name="pricefilter" id="hightolow" class="pricefiltering">
+                        <label for="hightolow">High to Low</label>
+                    </div>
+                    <div class="genderfilter">
+                        <p><strong>Gender:</strong></p>
+                        <input type="radio" name="gender" id="male" checked>
+                        <label for="male">Male</label>
+                        <br>
+                        <input type="radio" name="gender" id="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="clothingtypefilter">
+                        <p><strong>Clothing Type:</strong></p>
+                        <input type="radio" name="clothingtype" id="dryfit" checked>
+                        <label for="dryfit">Dry-Fit</label>
+                        <br>
+                        <input type="radio" name="clothingtype" id="casual">
+                        <label for="casual">Casual</label>
+                        <br>
+                        <input type="radio" name="clothingtype" id="shirts">
+                        <label for="shirts">Shirts</label>
+                        <br>
+                        <input type="radio" name="clothingtype" id="tshirts">
+                        <label for="tshirts">T-Shirts</label>
+                    </div>
+                    <div class="clothingbrandsfilter">
+                        <p><strong>Clothing Brands:</strong></p>
+                        <input type="radio" name="clothingbrand" id="adidas" checked>
+                        <label for="dryfit">Adidas</label>
+                        <br>
+                        <input type="radio" name="clothingbrand" id="puma">
+                        <label for="casual">Puma</label>
+                        <br>
+                        <input type="radio" name="clothingbrand" id="zara">
+                        <label for="shirts">Zara</label>
+                        <br>
+                        <input type="radio" name="clothingbrand" id="h&m">
+                        <label for="tshirts">H&M</label>
+                    </div>
+                </div>
+                <div class="products">
+                    <!-- <div class="productitem">
+                        <p>asd</p>
+                        <p>asdasd</p>
+                        <p>asdas</p>
+                    </div> -->
+                    <div class="productitems">
+                        <img src="/assets/clothe1.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 1</strong></p>
+                        <p><em>$12.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+                    <div class="productitems">
+                        <img src="/assets/clothe2.jpg" alt="" height="150" width="130">
+                        <p><strong>Clothing 2</strong></p>
+                        <p><em>$15.99</em></p>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <script src="../JS/footer.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>

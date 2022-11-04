@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.confirmation_body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
+    background-color: rgb(195, 195, 195);
+    width: 80%;
+    padding: 2px 20px;
+    border-radius: 20px;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+}
+
+#confirmationtexts {
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+}

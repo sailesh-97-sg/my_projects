@@ -1,0 +1,36 @@
+body {margin: 0px;}
+
+.profile_body {
+    background-color: rgb(195, 195, 195);
+    width: 70%;
+    margin-top: 0px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    min-width: 900px;
+    display: grid;
+    grid-template-columns: 30% 90%;
+    grid-gap: 20px;
+}
+#nav_bar{
+    display: block;
+    flex: 1;
+}
+#nav_bar label {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    width: 200px;
+   }
+#nav_bar label:active, #nav_bar label:hover{
+    background-color: white;
+}
+#nav_bar input[type=radio]{
+    visibility: hidden;
+}
+#nav_bar ul{
+    list-style-type: none;
+    text-align:center
+}

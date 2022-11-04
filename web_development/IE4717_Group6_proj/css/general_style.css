@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+}
+
+#wrapper {
+    width: 100%;
+    min-width: 900px;
+}
+
+#logo a img {
+    background-color: blue;
+    border-radius: 100px;
+}
+
+#tabs a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+}
+
+#tabs a:hover {
+    background-color: #4e53ff;
+    color: black;
+}
+
+#search_bar input[type=text] {
+    float: left;
+    padding: 6px;
+    border: 1;
+    margin-top: 8px;
+    margin-right: 5px;
+    font-size: 17px;
+    border-radius: 20px;
+}
+
+#search_bar input[type=image] {
+    background-color: white;
+    float: left;
+    padding: auto;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+header {
+    display: flex;
+    padding: 10px 15px;
+    background-color: blue;
+}
+
+
+
+#cart img {
+    border-radius: 10px;
+}
+
+#cart {
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+#link_btn:link,
+#link_btn:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+#tabs {
+    flex: 1 0 50px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 15px 15px;
+    margin: 0;
+    line-height: normal;
+    display: flex;
+}
+
+footer div p {
+    font-size: 17px;
+}
+
+#contactdetails,
+#customerservice {
+    flex: 1 0 50px;
+}
+
+#socialmedia {
+    padding-right: 50px;
+}
+
+#socialmedia img {
+    border-radius: 100px;
+    margin: 5px 5px;
+    background-color: black;
+}

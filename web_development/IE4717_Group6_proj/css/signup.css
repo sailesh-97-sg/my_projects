@@ -1,0 +1,29 @@
+body {
+    background-color: white;
+    max-width: max-content;
+    margin: auto;
+}
+
+img {
+    margin-top: 20px;
+}
+
+input {
+    border-radius: 20px;
+    width: 300px;
+    padding-left: 10px;
+    height: 30px;
+    border-width: 3px;
+    background-color: rgb(243, 243, 243);
+
+}
+
+#signupsubmit {
+    width: 200px;
+    background-color: lightblue;
+    margin-left: 50px;
+}
+
+p {
+    margin-left: 50px;
+}

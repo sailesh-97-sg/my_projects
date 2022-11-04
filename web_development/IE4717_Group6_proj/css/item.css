@@ -1,0 +1,152 @@
+body {
+    margin: 0px;
+}
+
+.products_body {
+    margin: auto;
+    background-color: rgb(195, 195, 195);
+    width: 90%;
+    margin-top: 0px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    min-width: 1000px;
+
+}
+
+.itemspage {
+    display: flex;
+    justify-content: space-around;
+}
+
+.productaddtocart {
+    border-left: 1px solid black;
+    padding-left: 40px;
+    padding-right: 40px;
+
+
+
+}
+
+.addtocart {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.addtocart input {
+    border-radius: 20px;
+    width: 100px;
+    height: 30px;
+}
+
+/* .productaddtocart input {
+    border-radius: 20px;
+    height: 22px;
+} */
+
+.quantity {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+.quantity input {
+    border-radius: 20px;
+    height: 22px;
+    margin-left: 10px;
+}
+
+.questionsredirect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 160px;
+    width: 150px;
+}
+
+.questionsredirect p:nth-of-type(2) {
+    margin-top: -10px;
+}
+
+.productimage img {
+    border-radius: 20px;
+
+}
+
+.productimage {
+    text-align: center;
+}
+
+.productdescription {
+    /* border: 1px solid black; */
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 100px;
+}
+
+.productsizes {
+    display: flex;
+    justify-content: center;
+
+}
+
+input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 2px 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 2px solid #444;
+    border-radius: 20px;
+    margin-top: 6px;
+
+
+}
+
+input[type="radio"]:checked+label {
+    background-color: rgb(128, 189, 255);
+    border-color: #444;
+
+}
+
+input[type="radio"]:focus+label {
+    border: 2px solid #444
+}
+
+/* 
+input {
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+    width: 70px;
+} */
+
+.productsizes {
+    display: flex;
+    align-items: center;
+}
+
+.productsizes p {
+    margin-top: 20px;
+}
+
+.coloroption {
+    display: flex;
+    justify-content: center;
+}
+
+.coloroption select {
+    margin-top: 11px;
+    margin-left: 10px;
+    width: 100px;
+    height: 27px;
+    border-radius: 20px;
+}

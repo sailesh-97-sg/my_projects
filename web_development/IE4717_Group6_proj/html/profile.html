@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/general_style.css">
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <header>
+                <script src="../JS/header_logo.js"></script>
+                <!-- tabs contents are not the same for every page. It will be edited in html files.-->
+                <script src="../JS/header_tabs.js"></script>
+                <!--Search bar will be re-written in JS after login and cart buttons are added-->
+                <div id="search_bar">
+                    <input type="text" placeholder="Search...">
+                    <input type="image" src="../assets/search.png" name="search" width="35px" height="35px"
+                        alt="submit">
+                </div>
+            </header>
+            <div class="products_body">
+                <div class="accountandorders">
+                    <p><strong>My Account</strong></p>
+                    <div class="accountdetails">
+
+                        <div class="firstname">
+                            <p><strong>First Name:</strong> Jonathan</p>
+                            <input type="button" value="Edit">
+                        </div>
+
+                        <div class="lastname">
+                            <p><strong>Last Name: </strong></p>
+                            <p>Smith</p>
+                        </div>
+
+                        <div class="email">
+                            <p><strong>Email: </strong></p>
+                            <p>testing@e.ntu.edu.sg</p>
+                        </div>
+
+                        <div class="address">
+                            <p><strong>Address: </strong></p>
+                            <p>Blk 18, Bukit Batok Ave 6, #02-152</p>
+                        </div>
+
+                        <div class="postalcode">
+                            <p><strong>Postal Code: </strong></p>
+                            <p>172839</p>
+                        </div>
+
+                    </div>
+
+                    <p><strong>Orders</strong></p>
+                    <div class="orders">
+
+                        <div class="datepurchased">
+                            <p><strong>Date Purchased:</strong> 12/2/2022</p>
+                        </div>
+
+                        <div class="itemspurchased">
+                            <p><strong>Items Purchased: </strong></p>
+                            <div class="listofitemspurchased">
+                                <p>
+                                <div id="itemqty"></div>x1 Long Jeans</p>
+                                <p>x1 Cotton Shirt</p>
+                                <p>x1 Jacket</p>
+                            </div>
+                        </div>
+
+                        <div class="totalprice">
+                            <p><strong>Total Price: </strong></p>
+                            <p>$24.00</p>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <script src="../JS/footer.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>

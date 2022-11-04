@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/item.css">
+    <link rel="stylesheet" href="../css/general_style.css">
+    <title>Items Page</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <header>
+                <script src="../JS/header_logo.js"></script>
+                <!-- tabs contents are not the same for every page. It will be edited in html files.-->
+                <script src="../JS/header_tabs.js"></script>
+                <!--Search bar will be re-written in JS after login and cart buttons are added-->
+                <div id="search_bar">
+                    <input type="text" placeholder="Search...">
+                    <input type="image" src="../assets/search.png" name="search" width="35px" height="35px"
+                        alt="submit">
+                </div>
+            </header>
+        </div>
+        <form action="">
+            <div class="products_body">
+                <div class="itemspage">
+                    <div class="productimage">
+                        <img src="/assets/clothe1.jpg" alt="" height="300px" width="200px">
+                        <p><strong>Clothing 1</strong></p>
+                    </div>
+                    <div class="productdescription">
+                        <p><strong>Clothing 1</strong></p>
+                        <p>Made in Germany by the famous fashion designer Alberto Robin, this was released in 2002, as
+                            part
+                            of the Alberto Limited Edition. Aksdjnjasndkjasndkjanskdnaksjndkasndkasnkdanskdnaksjnkd</p>
+                        <div class="productsizes">
+                            <p>Sizes: </p>
+                            <input type="radio" name="size" id="small">
+                            <label for="small">Small</label>
+                            <input type="radio" name="size" id="medium">
+                            <label for="medium">Medium</label>
+                            <input type="radio" name="size" id="large">
+                            <label for="large">Large</label>
+                            <input type="radio" name="size" id="extralarge">
+                            <label for="extralarge">Extra Large</label>
+                        </div>
+                        <div class="coloroption">
+                            <p>Color Option:</p>
+                            <select name="" id="color">
+                                <option value="red" style="background-color: red; color: white;">Red</option>
+                                <option value="blue" style="background-color: blue; color: white">Blue</option>
+                                <option value="green" style="background-color: green; color: white">Green</option>
+                                <option value="yellow" style="background-color: yellow; color: black">Yellow</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="productaddtocart">
+                        <div class="quantity">
+                            <p>Qty: </p>
+                            <input type="text">
+                        </div>
+                        <div class="addtocart">
+                            <input type="submit" name="submit" id="" value="Add to Cart">
+                        </div>
+                        <div class="questionsredirect">
+                            <p><strong>Have a question?</strong></p>
+                            <p>Check our policy <a href="www.google.com">here</a>.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
