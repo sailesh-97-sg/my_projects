@@ -6,8 +6,8 @@ import {
   Pressable,
   FlatList,
 } from "react-native";
-import React, { useState, useRef } from "react";
-import { SearchBar, CheckBox } from "@rneui/base";
+import React, { useState, useRef, useEffect } from "react";
+import { SearchBar, CheckBox, Icon } from "@rneui/base";
 import { uniqueIngredients as ingredients } from "../models/ingredientsModel";
 
 const IngredientItem = ({ ingredient, checked, onPress }) => {
@@ -23,11 +23,18 @@ const IngredientItem = ({ ingredient, checked, onPress }) => {
   );
 };
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
   const [checkedItems, setCheckedItems] = useState({});
   const [searchText, setSearchText] = useState("");
   const flatListRef = useRef(null);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  useEffect(() => {
+    if (route.params?.reset) {
+      setCheckedItems({}), handleSearchFocus();
+      navigation.setParams({ reset: false });
+    }
+  }, [route.params?.reset]);
 
   const handleSearchFocus = () => {
     if (flatListRef.current) {
@@ -111,11 +118,22 @@ const HomeScreen = ({ navigation }) => {
         />
       </View>
       <View style={{ margin: 20 }}>
-        <Text
-          style={{ marginLeft: 10, fontFamily: "BonaNovaBold", fontSize: 20 }}
-        >
-          Select ingredients
-        </Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Text
+            style={{ marginLeft: 10, fontFamily: "BonaNovaBold", fontSize: 20 }}
+          >
+            Select ingredients
+          </Text>
+          <Pressable
+            onPress={() => {
+              setCheckedItems({});
+              handleSearchFocus();
+            }}
+          >
+            <Icon name={"refresh"} iconStyle={"evilicons"} />
+          </Pressable>
+        </View>
+
         <View
           style={{
             borderColor: "black",
@@ -123,6 +141,7 @@ const HomeScreen = ({ navigation }) => {
             borderRadius: 20,
             height: "76%",
             marginTop: 20,
+            position: "relative",
           }}
         >
           <FlatList
@@ -132,12 +151,29 @@ const HomeScreen = ({ navigation }) => {
             style={{ marginVertical: 5 }}
             ref={flatListRef}
           />
+          <Pressable
+            onPress={handleSearchFocus}
+            style={{
+              position: "absolute",
+              right: 20,
+              bottom: 20,
+              borderWidth: 0.6,
+              borderColor: "black",
+              backgroundColor: "lightblue",
+              borderRadius: 20,
+              paddingHorizontal: 20,
+              paddingVertical: 10,
+              elevation: 2,
+            }}
+          >
+            <Text>Go Up</Text>
+          </Pressable>
         </View>
       </View>
 
       <Pressable
         onPress={() => {
-          navigation.navigate("Recipe", {
+          navigation.navigate("Utensils", {
             ingredientsJSON: selectedIngredients,
           });
         }}
@@ -152,6 +188,9 @@ const HomeScreen = ({ navigation }) => {
           bottom: 30,
           right: 20,
           zIndex: 100,
+          borderColor: "black",
+          borderWidth: 0.6,
+          elevation: 6,
         }}
       >
         <Text>Next</Text>

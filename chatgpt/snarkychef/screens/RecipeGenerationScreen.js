@@ -17,7 +17,9 @@ const { width, height } = Dimensions.get("window");
 const RecipeGenerationScreen = ({ navigation }) => {
   const route = useRoute();
   const ingredientsJSON = route.params.ingredientsJSON;
+  const utensilsJSON = route.params.utensilsJSON;
   const [availableIngredients, setAvailableIngredients] = useState("");
+  const [availableUtensils, setAvailableUtensils] = useState("");
   const [gpt35response, setGpt35Response] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,6 +28,16 @@ const RecipeGenerationScreen = ({ navigation }) => {
     console.log(
       "\n\nThese are the selected ingredients: \n\n",
       ingredientsJSON
+    );
+
+    console.log("\n\nThese are the selected utensils: \n\n", utensilsJSON);
+    const availableUtensils = utensilsJSON
+      .map((utensil) => utensil.name)
+      .join(", ");
+    setAvailableUtensils(availableUtensils);
+    console.log(
+      "\n\nThese are the available utensils at hand: \n\n",
+      availableUtensils
     );
 
     const availableIngredients = ingredientsJSON
@@ -37,16 +49,29 @@ const RecipeGenerationScreen = ({ navigation }) => {
       availableIngredients
     );
 
-    getChatCompletion(
-      `I have ${availableIngredients}. Give me a recipe I can cook with these ingredients.`,
-      setGpt35Response
-    )
-      .then(() => {
-        setIsLoading(false);
-      })
-      .catch((error) =>
-        console.error("Error fetching question response: ", error)
-      );
+    if (!availableUtensils) {
+      getChatCompletion(
+        `I have ${availableIngredients}. Give me a recipe I can cook with these ingredients.`,
+        setGpt35Response
+      )
+        .then(() => {
+          setIsLoading(false);
+        })
+        .catch((error) =>
+          console.error("Error fetching question response: ", error)
+        );
+    } else {
+      getChatCompletion(
+        `I have ${availableIngredients}. Give me a recipe I can cook using ${availableUtensils} with these ingredients.`,
+        setGpt35Response
+      )
+        .then(() => {
+          setIsLoading(false);
+        })
+        .catch((error) =>
+          console.error("Error fetching question response: ", error)
+        );
+    }
   }, [ingredientsJSON]);
 
   //   useEffect(() => {
@@ -60,7 +85,7 @@ const RecipeGenerationScreen = ({ navigation }) => {
     <ScrollView>
       <Pressable
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.navigate("Utensils", { ingredientsJSON: ingredientsJSON });
         }}
         style={{
           borderRadius: 20,
@@ -158,6 +183,12 @@ const RecipeGenerationScreen = ({ navigation }) => {
             <Text style={{ fontFamily: "BonaNovaRegular" }}>Save Recipe</Text>
           </Pressable>
           <Pressable
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: "Home", params: { reset: true } }],
+              });
+            }}
             style={{
               borderWidth: 0.8,
               borderColor: "black",

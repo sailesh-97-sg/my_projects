@@ -10,6 +10,7 @@ import HomeScreen from "./screens/HomeScreen";
 import useLoadFonts from "./fonts";
 import RecipeGenerationScreen from "./screens/RecipeGenerationScreen";
 import SavedRecipesScreen from "./screens/SavedRecipesScreen";
+import CookingUtensilsScreen from "./screens/CookingUtensilsScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -26,6 +27,11 @@ const StackNav = () => {
       <Stack.Screen
         name="Recipe"
         component={RecipeGenerationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Utensils"
+        component={CookingUtensilsScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
@@ -94,6 +100,7 @@ export default function App() {
             component={StackNav}
             options={{}}
           />
+
           <Drawer.Screen name="Saved Recipes" component={SavedRecipesScreen} />
         </Drawer.Navigator>
       </NavigationContainer>
