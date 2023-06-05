@@ -167,6 +167,26 @@ const CookingUtensilsScreen = ({ navigation }) => {
           </Pressable>
         </View>
       </View>
+      <Pressable
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          width: 90,
+          height: 50,
+          backgroundColor: "lightgreen",
+          borderWidth: 0.6,
+          borderColor: "black",
+          borderRadius: 25,
+          position: "absolute",
+          bottom: 30,
+          left: 20,
+        }}
+      >
+        <Text>Back</Text>
+      </Pressable>
 
       <Pressable
         onPress={() => {
@@ -178,9 +198,11 @@ const CookingUtensilsScreen = ({ navigation }) => {
         style={{
           alignItems: "center",
           justifyContent: "center",
-          width: 80,
+          width: 90,
           height: 50,
           backgroundColor: "#2196F3",
+          borderWidth: 0.6,
+          borderColor: "black",
           borderRadius: 25,
           position: "absolute",
           bottom: 30,

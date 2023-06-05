@@ -1,6 +1,6 @@
 import Constants from "expo-constants";
 
-const OPENAI_API_KEY = Constants.manifest.extra.apiKey;
+const OPENAI_API_KEY = Constants.expoConfig.extra.apiKey;
 
 export async function getChatCompletion(prompt, callback) {
   try {
